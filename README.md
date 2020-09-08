@@ -11,4 +11,4 @@ Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
-![Alt text](./parlay.gif?raw=true "Title")
+![Alt text](src/parlayCalculator.gif?raw=true "Title")
