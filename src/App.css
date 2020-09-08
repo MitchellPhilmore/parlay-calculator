@@ -1,38 +1,198 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  max-width: 400px;
+  min-height: 500px;
+  width: 75%;
+  height: 80%;
+  padding: 20px;
+  background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(0, 0, 0, 0.25) 200%
+    );
+  background-blend-mode: multiply;
+
+  margin: 0 auto;
+  background-blend-mode: multiply;
+  justify-self: center;
+}
+
+.results_container {
+  border: 0.5px solid #3a3a3a;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(58, 58, 58, 0.9);
+  width: 100%;
+  border-radius: 5px;
+}
+
+.add_bet {
+  padding: 10px;
+  font-family: "Ewert";
+  font-size: 22px;
+}
+
+.add_bet_container {
+  display: flex;
+}
+
+#add_bet_btn {
+  margin-left: 10px;
+  background: #616130;
+}
+
+input {
+  color: whitesmoke !important;
+  font-size: 25px !important;
+}
+
+.input-start {
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+#outlined-basic:active {
+  border-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.bets {
+  font-family: "Bebas Neue", cursive;
+}
+
+.disabled {
+  opacity: 0.6;
+}
+#trash {
+  transition: all 0.6s;
+  cursor: pointer;
+}
+
+#trash:hover {
+  fill: #7fad26;
+}
+
+.MuiInputAdornment-root {
+  color: #7fad26;
+}
+.MuiInputAdornment-root > p {
+  color: #7fad26 !important;
+}
+
+.text-focus-in {
+  -webkit-animation: text-focus-in 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045)
+    both;
+  animation: text-focus-in 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
   }
 }
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.banner {
+  background: url("https://www.dfsarmy.com/wp-content/uploads/2015/10/dfsarmylogo.jpg");
+  background-size: 350px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  height: 280px;
+  opacity: 0.8;
+  border: 5px solid transparent;
+  padding: 0.5rem;
+  border-radius: 5px;
+  -webkit-transform: scale(1.15) translateY(-15px);
+  transform: scale(1.25) translateY(-45px);
+  -webkit-transform-origin: top;
+  transform-origin: top;
+}
+
+.fade-in-top {
+  -webkit-animation: fade-in-top 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in-top 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@-webkit-keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.kenburns-top {
+  -webkit-animation: kenburns-top 5s ease-out both;
+  animation: kenburns-top 5s ease-out both;
+}
+@-webkit-keyframes kenburns-top {
+  0% {
+    -webkit-transform: scale(1) translateY(0);
+    transform: scale(1) translateY(0);
+    -webkit-transform-origin: 50% 16%;
+    transform-origin: 50% 16%;
+  }
+  100% {
+    -webkit-transform: scale(1.25) translateY(-15px);
+    transform: scale(1.25) translateY(-15px);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+  }
+}
+@keyframes kenburns-top {
+  0% {
+    -webkit-transform: scale(1) translateY(0);
+    transform: scale(1) translateY(0);
+    -webkit-transform-origin: 50% 16%;
+    transform-origin: 50% 16%;
+  }
+  100% {
+    -webkit-transform: scale(1.25) translateY(-15px);
+    transform: scale(1.25) translateY(-15px);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+  }
+}
+input:focus {
+  border-color: green;
+}
+.MuiFilledInput-underline:after {
+  border-color: #7fad26 !important;
+}
+
