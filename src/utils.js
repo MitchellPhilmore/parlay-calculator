@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { TextField } from "@material-ui/core";
+
 const oddsToDecimal = (odds) => {
   return odds.map((odd) => {
     if (odd < 0) {
@@ -42,3 +43,4 @@ export const deleteBet = (index,moneyLines) => {
    return result
 
 }
+

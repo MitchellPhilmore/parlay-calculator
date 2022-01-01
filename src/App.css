@@ -44,6 +44,7 @@
 #add_bet_btn {
   margin-left: 10px;
   background: #616130;
+  margin-right: 5px;
 }
 
 input {
@@ -85,6 +86,10 @@ input {
   -webkit-animation: text-focus-in 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045)
     both;
   animation: text-focus-in 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) both;
+}
+
+.delete{
+  display: none;
 }
 
 @-webkit-keyframes text-focus-in {
