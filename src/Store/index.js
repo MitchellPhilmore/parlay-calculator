@@ -2,11 +2,11 @@ import React, { createContext, useReducer } from "react";
 
 const initialState = {
   betAmount: "",
-  winings: 0,
+  profit: 0,
   payout: 0,
   moneylines: [],
   oddsField: "",
-  isActive: false,
+  isDisabled: true,
 };
 const store = createContext(initialState);
 const { Provider } = store;
@@ -24,6 +24,12 @@ const StateProvider = ({ children }) => {
           ...state,
           oddsField: action.payload,
         };
+      case "UPDATE_PROFIT_AND_PAYOUT":
+        return {
+          ...state,
+          profit: Number(action.payload.profit),
+          payout: Number(action.payload.wager) + Number(action.payload.profit),
+        };
       case "ADD_BET":
         return {
           ...state,
@@ -31,7 +37,7 @@ const StateProvider = ({ children }) => {
             ...action.payload.moneylines,
             Number(action.payload.oddsField),
           ],
-          active: false,
+          // active: false,
         };
       case "RESET_ODDS_FIELD":
         return {
@@ -54,17 +60,21 @@ const StateProvider = ({ children }) => {
       case "UPDATE_WININGS":
         return {
           ...state,
-          winings: action.payload,
+          profit: action.payload,
         };
-        // TODO
+      // TODO
       case "DELETE_MONEYLINE":
         return {
           ...state,
-          moneylines: [action.payload.moneylines].splice(
-            action.payload.index,
-            1
-          ),
+          moneylines: action.payload.moneylines,
         };
+        case "SET_IS_DISABLED":
+          return {
+            ...state,
+            isDisabled: action.payload
+          };
+          
+        
 
       default:
         return state;

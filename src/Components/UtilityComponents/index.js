@@ -66,6 +66,8 @@ export const AddBetBtn = () => {
           type: "ADD_BET",
           payload: { moneylines: moneylines, oddsField: oddsField },
         });
+
+        dispatch({type:'SET_IS_DISABLED', payload: false})
       }}
     >
       <span>Add Bet</span>
