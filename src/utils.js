@@ -17,7 +17,7 @@ const multiplier = (odds) =>
 export const parlay = (betAmount, odds) => {
   const decimals = oddsToDecimal(odds);
   const combineOdds = multiplier(decimals);
-  return { wager: betAmount, profit: combineOdds * betAmount - betAmount };
+  return { wager: betAmount, winnings: combineOdds * betAmount - betAmount };
 };
 
 export const StyledTextField = styled(TextField)`
@@ -36,11 +36,3 @@ export const StyledTextField = styled(TextField)`
     }
   }
 `;
-
-export const deleteBet = (index,moneyLines) => {
-   const result = [...moneyLines]
-   result.splice(index,1)
-   return result
-
-}
-

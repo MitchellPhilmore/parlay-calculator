@@ -1,3 +1,5 @@
+
+
 export const btnStyles = {
   marginTop: "5px",
   height: "30px",
@@ -18,5 +20,5 @@ export const moneyLineStyles = {
   fontFamily: "'Bebas Neue', cursive",
   justifyContent: "space-around",
   boxShadow: " 5px 10px 5px rgba(58,58,58,0.3)",
-  borderRadius: "5px",
+  borderRadius: "5px"
 };

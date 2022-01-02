@@ -2,15 +2,19 @@ import React, { useContext } from "react";
 import "./App.css";
 import { Button, Paper } from "@material-ui/core";
 import { btnStyles } from "./styles";
-import { parlay} from "./utils";
+import { parlay } from "./utils";
 import MoneyLine from "./MoneyLine";
 import Results from "./Results";
-import { AddBetBtn, BetField, MoneyLineField } from "./Components/UtilityComponents";
+import {
+  AddBetBtn,
+  BetField,
+  MoneyLineField,
+} from "./Components/UtilityComponents";
 import { store } from "./Store";
 
 export default function App() {
   const [state, dispatch] = useContext(store);
-  const { active, moneylines, payout, winings, betAmount } = state;
+  const { isDisabled, moneylines, profit, payout, betAmount } = state;
   return (
     <Paper elevation={5} className="container">
       <div className="banner"></div>
@@ -25,16 +29,16 @@ export default function App() {
           <AddBetBtn />
           {/* // Move calculate btn to components */}
           <Button
-            className={active ? "disabled" : ""}
-            disabled={active}
+            className={isDisabled ? "disabled" : ""}
+            disabled={isDisabled}
             style={btnStyles}
             onClick={(evt) => {
-              const { wager, profit } = parlay(betAmount, moneylines);
+              const { wager, winnings } = parlay(betAmount, moneylines);
               dispatch({
                 type: "UPDATE_PAYOUT",
-                payload: Number(profit) + Number(wager),
+                payload: Number(winnings) + Number(wager),
               });
-              dispatch({ type: "UPDATE_WININGS", payload: Number(profit) });
+              dispatch({ type: "UPDATE_WININGS", payload: Number(winnings) });
             }}
             variant="contained"
             size="small"
@@ -48,7 +52,7 @@ export default function App() {
           <MoneyLine moneyLine={moneyline} index={index} />
         ))}
       </div>
-      <Results youWin={winings} payout={payout} />
+      <Results youWin={profit} payout={payout} />
     </Paper>
   );
 }
