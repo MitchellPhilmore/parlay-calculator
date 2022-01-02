@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
+html,body{
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+#root{
+  align-self: center;
+  width: 100%;
+}
+
+
+
 .container {
   display: flex;
   flex-direction: column;
@@ -201,3 +213,6 @@ input:focus {
   border-color: #7fad26 !important;
 }
 
+#root{
+  
+}
