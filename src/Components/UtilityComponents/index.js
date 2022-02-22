@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { StyledTextField } from "../../utils";
 import { store } from "../../Store";
 import { InputAdornment } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { btnStyles } from "../../styles";
+import {parlay} from '../../utils'
 
 export const BetField = () => {
   const [state, dispatch] = useContext(store);
@@ -55,12 +56,16 @@ export const MoneyLineField = () => {
 
 export const AddBetBtn = () => {
   const [state, dispatch] = useContext(store);
-  const { moneylines, oddsField } = state;
+  const { moneylines, oddsField, betAmount } = state;
+  console.log(state)
+  const canPlaceBet = (oddsField !== '' && betAmount !== '')
   return (
     <Button
+      className={!canPlaceBet ? 'disabled': ''}
       id="add_bet_btn"
       variant="contained"
       style={btnStyles}
+      disabled={!canPlaceBet}
       onClick={(evt) => {
         dispatch({
           type: "ADD_BET",
@@ -74,3 +79,43 @@ export const AddBetBtn = () => {
     </Button>
   );
 };
+
+export const CalculateBtn = () => {
+    const [state, dispatch] = useContext(store)
+    const{isDisabled, betAmount, moneylines} = state
+
+    return (
+      <Button
+            className={isDisabled ? "disabled" : ""}
+            disabled={isDisabled}
+            style={btnStyles}
+            onClick={(evt) => {
+              const { wager, winnings } = parlay(betAmount, moneylines);
+              dispatch({
+                type: "UPDATE_PAYOUT",
+                payload: Number(winnings) + Number(wager),
+              });
+              dispatch({ type: "UPDATE_WININGS", payload: Number(winnings) });
+            }}
+            variant="contained"
+            size="small"
+          >
+            Calculate
+          </Button>
+    )
+}
+
+export const ThemeBtn = () => {
+  const [state, dispatch] = useContext(store);
+  const {theme} = state;
+
+  useEffect(() => {
+   theme === 'light'? document.querySelector('body').style.backgroundColor = 'white' : document.querySelector('body').style.background = 'black';
+  }, [theme])
+    return(
+      <Button style={{position: 'absolute', top:'50px'}} onClick={() => { dispatch({type:"SET_THEME", payload:!theme})}} className="theme-btn">Toggle Theme</Button>
+    )
+}
+
+
+

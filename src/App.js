@@ -1,20 +1,22 @@
 import React, { useContext } from "react";
 import "./App.css";
-import { Button, Paper } from "@material-ui/core";
-import { btnStyles } from "./styles";
-import { parlay } from "./utils";
+import { Paper } from "@material-ui/core";
 import MoneyLine from "./MoneyLine";
 import Results from "./Results";
 import {
-  AddBetBtn,
+  AddBetBtn, 
   BetField,
   MoneyLineField,
+  CalculateBtn,
+  ThemeBtn
 } from "./Components/UtilityComponents";
 import { store } from "./Store";
 
+
+
 export default function App() {
-  const [state, dispatch] = useContext(store);
-  const { isDisabled, moneylines, profit, payout, betAmount } = state;
+  const [state] = useContext(store);
+  const { moneylines, profit, payout} = state;
   return (
     <Paper elevation={5} className="container">
       <div className="banner"></div>
@@ -27,24 +29,7 @@ export default function App() {
 
         <span style={{ display: "flex" }}>
           <AddBetBtn />
-          {/* // Move calculate btn to components */}
-          <Button
-            className={isDisabled ? "disabled" : ""}
-            disabled={isDisabled}
-            style={btnStyles}
-            onClick={(evt) => {
-              const { wager, winnings } = parlay(betAmount, moneylines);
-              dispatch({
-                type: "UPDATE_PAYOUT",
-                payload: Number(winnings) + Number(wager),
-              });
-              dispatch({ type: "UPDATE_WININGS", payload: Number(winnings) });
-            }}
-            variant="contained"
-            size="small"
-          >
-            Calculate
-          </Button>
+        <CalculateBtn/>
         </span>
       </div>
       <div>

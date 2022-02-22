@@ -16,12 +16,12 @@ export default ({ moneyLine, index }) => {
       <DeleteForeverOutlinedIcon
         className="wobble-hor-bottom"
         onClick={(e) => {
-          const updatedLines = moneylines.filter((line, idx) => index != idx )
+          const updatedLines = moneylines.filter((line, idx) => index !== idx )
           dispatch({
             type: "DELETE_MONEYLINE",
             payload:{moneylines: updatedLines},
           });
-           if(updatedLines.length != 0){
+           if(updatedLines.length !== 0){
             let {wager, winnings} =  parlay(betAmount,updatedLines)
             dispatch({
               type: 'UPDATE_PROFIT_AND_PAYOUT',

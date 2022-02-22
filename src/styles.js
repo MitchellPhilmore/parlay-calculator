@@ -6,7 +6,6 @@ export const btnStyles = {
   background: "#a5b969",
   color: "#3a3a3a",
   fontFamily: "'Bebas Neue', cursive",
-  height: "30px",
   width: "80px",
   fontSize: "15px",
 };

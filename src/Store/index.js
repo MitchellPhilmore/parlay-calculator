@@ -7,7 +7,10 @@ const initialState = {
   moneylines: [],
   oddsField: "",
   isDisabled: true,
+  theme:"light"
 };
+
+
 const store = createContext(initialState);
 const { Provider } = store;
 
@@ -17,7 +20,7 @@ const StateProvider = ({ children }) => {
       case "UPDATE_BET_AMOUNT":
         return {
           ...state,
-          betAmount: action.payload,
+          betAmount: action.payload, 
         };
       case "UPDATE_MONEY_LINE":
         return {
@@ -37,7 +40,6 @@ const StateProvider = ({ children }) => {
             ...action.payload.moneylines,
             Number(action.payload.oddsField),
           ],
-          // active: false,
         };
       case "RESET_ODDS_FIELD":
         return {
@@ -72,7 +74,14 @@ const StateProvider = ({ children }) => {
           return {
             ...state,
             isDisabled: action.payload
+
+        
           };
+        case "SET_THEME":
+          return {
+            ...state,
+            theme: !state.theme
+          }
           
         
 

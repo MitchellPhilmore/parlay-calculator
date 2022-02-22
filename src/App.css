@@ -42,6 +42,9 @@ html,body{
   width: 100%;
   border-radius: 5px;
 }
+.toggle-theme {
+   color: black;
+}
 
 .add_bet {
   padding: 10px;
@@ -84,7 +87,7 @@ input {
 }
 
 #trash:hover {
-  fill: #7fad26;
+  fill: red;
 }
 
 .MuiInputAdornment-root {
