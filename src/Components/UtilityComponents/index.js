@@ -22,6 +22,7 @@ export const BetField = () => {
       label="Bet Amount"
       value={betAmount}
       variant="filled"
+      autoComplete="off"
       onChange={(evt) =>
         dispatch({ type: "UPDATE_BET_AMOUNT", payload: evt.target.value })
       }
@@ -47,6 +48,7 @@ export const MoneyLineField = () => {
       label="Money Line"
       variant="filled"
       value={oddsField}
+      autoComplete="off"
       onChange={(evt) =>
         dispatch({ type: "UPDATE_MONEY_LINE", payload: evt.target.value })
       }
