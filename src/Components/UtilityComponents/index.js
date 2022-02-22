@@ -19,6 +19,7 @@ export const BetField = () => {
         ),
       }}
       id="outlined-basic"
+      type="number"
       label="Bet Amount"
       value={betAmount}
       variant="filled"
@@ -29,6 +30,7 @@ export const BetField = () => {
     />
   );
 };
+
 
 export const MoneyLineField = () => {
   const [state, dispatch] = useContext(store);
@@ -47,6 +49,7 @@ export const MoneyLineField = () => {
       id="outlined-basic"
       label="Money Line"
       variant="filled"
+      type="number"
       value={oddsField}
       autoComplete="off"
       onChange={(evt) =>
