@@ -12,13 +12,13 @@ export default ({ youWin, payout }) => {
             fontFamily: "'Bebas Neue', cursive",
             textAlign: "center",
           }}
-          variant="h5"
+          variant="h6"
         >
           You Win
         </Typography>
         <Typography
           style={{ marginBotton: "20px", color: "white", textAlign: "center" }}
-          variant="h5"
+          variant="h6"
         >
           $ {youWin.toFixed(2)}
         </Typography>
@@ -32,13 +32,13 @@ export default ({ youWin, payout }) => {
             fontFamily: "'Bebas Neue', cursive",
             textAlign: "center",
           }}
-          variant="h5"
+          variant="h6"
         >
           Payout
         </Typography>
         <Typography
           style={{ marginBotton: "20px", color: "white" }}
-          variant="h5"
+          variant="h6"
         >
           $ {payout.toFixed(2)}
         </Typography>
@@ -52,13 +52,13 @@ export default ({ youWin, payout }) => {
             fontFamily: "'Bebas Neue', cursive",
             textAlign: "center",
           }}
-          variant="h5"
+          variant="h6"
         >
           True Odds
         </Typography>
         <Typography
           style={{ marginBotton: "20px", color: "white", textAlign: "center" }}
-          variant="h5"
+          variant="h6"
         >
           {youWin === 0 ? "--" : `+${youWin.toFixed()}`}
         </Typography>

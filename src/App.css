@@ -54,6 +54,7 @@ html,body{
 
 .add_bet_container {
   display: flex;
+  
 }
 
 #add_bet_btn {
@@ -216,6 +217,9 @@ input:focus {
   border-color: #7fad26 !important;
 }
 
-#root{
-  
+.moneyline_container { 
+  max-height:150px;
+  overflow-y:auto;
+
+
 }

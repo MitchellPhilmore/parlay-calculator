@@ -32,7 +32,7 @@ export default function App() {
         <CalculateBtn/>
         </span>
       </div>
-      <div>
+      <div className="moneyline_container">
         {moneylines.map((moneyline, index) => (
           <MoneyLine moneyLine={moneyline} index={index} />
         ))}
